@@ -1,0 +1,27 @@
+{
+  "name": "sadna_project",
+  "version": "1.0.0",
+  "description": "A responsive web application for kindergarten ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Liz Miller, Vika Kasuker, Sarit Kigel",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "http": "0.0.0",
+    "mysql": "^2.16.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lizness87/mtaproject.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lizness87/mtaproject/issues"
+  },
+  "homepage": "https://github.com/Lizness87/mtaproject#readme"
+}

@@ -22,13 +22,13 @@ app.use(express.static('assets'))
          if(user_result[0].password == password){
          console.log(JSON.stringify(user_result[0]));
          if (user_result[0].privilege=='parent') {
-         res.redirect('/login/parent');
+         res.redirect('/login/parent' + '/?' +username);
          }
          else if (user_result[0].privilege=='manager') {
-         res.redirect('/login/manager');
+         res.redirect('/login/manager' + '/?' +username);
          }
          else if (user_result[0].privilege='assistant') {
-         res.redirect('/login/assistant');
+         res.redirect('/login/assistant' + '/?' +username);
         }
         
     }else{

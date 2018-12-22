@@ -12,10 +12,10 @@
 
 <h2>ברוכים הבאים למשפחתון של רינת</h2>
 
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">התחבר</button>
+<button class="lgn-btn" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">התחבר</button>
 
 <div id="id01" class="modal">
-  
+
 <form action="/controllers/authenticate-controller" method="POST">
 
   <form class="modal-content animate" action="/action_page.php">
@@ -30,18 +30,19 @@
 
       <label for="psw"><b>סיסמא</b></label>
       <input type="password" placeholder="הקלד סיסמא" name="psw" required>
-        
-      <button type="submit">התחבר</button>
+
+      <button class="lgn-btn" type="submit">התחבר</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> זכור אותי
       </label>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">יציאה</button>
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn lgn-btn">יציאה</button>
       <span class="psw">שכחת <a href="#">סיסמא?</a></span>
     </div>
   </form>
+</form>
 </div>
 
 <script>

@@ -1,0 +1,113 @@
+.datepicker-date-display, .datepicker-weekday-display {
+    background-color: rgba(255, 192, 203, 0.7);
+}
+
+body{
+
+    font-family: Arial;
+}
+h2{
+    text-align: center;
+    color: white;
+    font-size: 300%;
+    font-weight: bold;
+    background-color:pink;
+    font-family: Arial;
+
+
+}
+img.home{
+    width: 60%;
+    height:30%;
+    background-color: pink;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+    font-family: Arial;
+
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+    font-family: Arial;
+
+}
+
+img.avatar {
+    width: 25%;
+    height:30%;
+    border-radius: 30%;
+}
+
+.container {
+    padding: 16px;
+    font-family: Arial;
+
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+/*.modal, .modal-content{
+    background-color: rgba(255,255,255,1);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}*/
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+    .cancelbtn {
+        width: 100%;
+    }
+}

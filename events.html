@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="events.css">
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+</head>
+<body>
+<img src="back.jpg" alt="home" class="home">
+<h2>המשפחתון של רינת - אירועים</h2>
+<form class="container" action="/events" method="post">
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" class="datepicker" placeholder="Pick a date">
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" placeholder="What's the event?">
+        </div>
+    </div>
+    <div class="row center">
+        <button class="btn waves-effect waves-light blue" type="submit" name="action">הוסף אירוע</button>
+    </div>
+</form>
+</body>
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+    });
+</script>
+</html>

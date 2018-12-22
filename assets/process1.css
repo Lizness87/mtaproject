@@ -1,0 +1,52 @@
+<style>
+
+
+img.calendar{
+	width: 80%;
+	height:70%;
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+	position: relative;
+	text-align: center;
+
+}
+
+h2{
+	 text-align: center;
+	 color: white;
+	 font-size: 300%;
+	 font-weight: bold;
+	 background-color:pink;
+	 font-family: Arial;
+
+
+}
+ul{list-style-type:none;}
+
+li{
+	float:left;
+	width:200px;
+}
+
+a{
+	color:white;
+	text-decoration:none;
+	display:inline-block;
+	width:90%;
+	font-size:35px;
+	font-family: Arial;
+	text-align:center;
+	background:pink;
+	border-radius:10px;
+	
+}
+fieldset{
+	width:200px;
+	background-color:#DAC3D7;
+	bolder-width:10px;
+}
+
+
+
+</style>

@@ -44,7 +44,14 @@ a{
 fieldset{
 	width:200px;
 	background-color:#DAC3D7;
-	bolder-width:10px;
+	bolder-width:13px;
+	text-align: center;
+	font-family: Arial;
+	font-size:15px;
+	width: 40%;
+
+
+
 }
 
 

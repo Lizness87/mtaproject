@@ -1,4 +1,6 @@
 connection = require('./../config');
+
+
 express = require('express');
 var app = express();
 module.exports.authenticate=function(req,res){
@@ -22,13 +24,15 @@ app.use(express.static('assets'))
          if(user_result[0].password == password){
          console.log(JSON.stringify(user_result[0]));
          if (user_result[0].privilege=='parent') {
-         res.redirect('/login/parent');
+	 res.render('pages/homepageparent', data);
          }
          else if (user_result[0].privilege=='manager') {
-         res.redirect('/login/manager');
+	 var data={uid:user_result[0].uid};
+         res.render('pages/homepagemanager', data);
          }
          else if (user_result[0].privilege='assistant') {
-         res.redirect('/login/assistant');
+	 res.render('pages/homepageassistant', data);
+
         }
         
     }else{

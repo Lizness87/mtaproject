@@ -25,7 +25,9 @@ res.redirect('/login');
 //Load login.html after redirecting to login
 
 app.get('/login', function (req, res) {  
+
 	res.render('pages/login');  
+
 })
 
 
@@ -41,6 +43,8 @@ app.get('/login/parent', function (req, res) {
 app.get('/login/manager', function (req, res) {
 	res.render('pages/homepagemanager' );
 })
+
+
 
 //Load assistant homepage after authentication as an assistant
 

@@ -24,15 +24,16 @@ app.use(express.static('assets'))
          if(user_result[0].password == password){
          console.log(JSON.stringify(user_result[0]));
          if (user_result[0].privilege=='parent') {
-	 res.render('pages/homepageparent', data);
+             var data={uid:user_result[0].uid};
+	           res.render('pages/homepageparent', data);
          }
          else if (user_result[0].privilege=='manager') {
-	 var data={uid:user_result[0].uid};
-         res.render('pages/homepagemanager', data);
+	         var data={uid:user_result[0].uid};
+           res.render('pages/homepagemanager', data);
          }
          else if (user_result[0].privilege='assistant') {
-	 res.render('pages/homepageassistant', data);
-
+          var data={uid:user_result[0].uid};
+	        res.render('pages/homepageassistant', data);
         }
         
     }else{

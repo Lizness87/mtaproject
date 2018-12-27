@@ -1,0 +1,37 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="process1.css">
+
+</head>
+
+<body>
+<h2>פרטי ההורים</h2>
+
+<form>
+    <input type="hidden" value="<%=uid%>">
+
+<p><fieldset><legend style="font-weight: bold;font-size:25px;"> פרטי איש קשר ראשי</legend></p>
+<p> שם פרטי</p><input type="text" name="fname1">
+<p>שם משפחה</p><input type="text" name="sname1">
+<p> תעודת זהות</p><input type="text" name="id1">
+<p> נייד</p><input type="text" name="phone1">
+<p> כתובת</p><input type="text" name="address1">
+<p>מייל</p><input type="email" name="email1"></fieldset>
+
+<p><fieldset><legend style="font-weight: bold;font-size:25px;"> פרטי איש קשר משני</legend></p>
+<p> שם פרטי</p><input type="text" name="fname2">
+<p>שם משפחה</p><input type="text" name="sname2">
+<p> תעודת זהות</p><input type="text" name="id2">
+<p> נייד</p><input type="text" name="phone2">
+<p> כתובת</p><input type="text" name="address2">
+<p>מייל</p><input type="email" name="email2"></fieldset>
+
+
+
+</form>
+
+<a  href="registration2?uid=<%=uid%>"style="width:43%;">הבא</a>
+
+</body>
+
+</html>

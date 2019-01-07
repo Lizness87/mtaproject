@@ -9,27 +9,27 @@ body  {
 </style>
 <base href="/assets">
 
-	<link rel="stylesheet" type="text/css" href="process1.css">
+<link rel="stylesheet" type="text/css" href="process1.css">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
 </head>
 
-
 <body>
-
 <nav class="navbar navbar-inverse" style="background-color:#696969">
   <div class="container-fluid">
     <div class="navbar-header">
       
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="homepageassistant">דף הבית</a></li>
-      <li><a href="child-account-assistant">תיקי ילדים</a></li>
-      <li><a href="reports-manager">דיווח שבועי</a></li>
+      <li><a href="homepagemanager">דף הבית</a></li>
+      <li><a href="child-account-manager">תיקי ילדים</a></li>
+      <li><a href="payments-manager"">תשלומים</a></li>
+		<li><a href="events">אירועים</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> התנתק</a></li>
@@ -37,18 +37,21 @@ body  {
   </div>
 </nav>
 
-<h2 style="color: white;font-size:300%;">ברוכים הבאים למשפחתון של רינת</h2>
 
 
+  <h2 style="color: white;font-size:300%;width:40%;">תשלום נוצר בהצלחה</h2>
+
+<center><img src="back.jpg" alt="home" class="home" style="height:40%;width :60%"></center>
 <br>
+
+<form action="/homepagemanager1" method="POST">
+<center><button type="submit" style="width:20%;font-size:200%;color:white;">חזור לדף הבית</button></center>
+</form>
 <br>
-
-<center><iframe src="https://calendar.google.com/calendar/embed?src=rinatkidsevents%40gmail.com&ctz=Asia%2FJerusalem" style= "border:5px solid blue;
-width:60%; height:600; align:right; "></iframe></center>
-
 <div class="footer" style="text-align: center; background-color: #696969;color:white;">
   <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>
 </div>
+
 </body>
 
 </html>

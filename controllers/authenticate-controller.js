@@ -1,6 +1,4 @@
 connection = require('./../config');
-
-
 express = require('express');
 var app = express();
 module.exports.authenticate=function(req,res){
@@ -31,6 +29,8 @@ module.exports.authenticate=function(req,res){
                    }
                     else if (user_result[0].privilege='assistant') {
                          var data={uid:user_result[0].uid};
+                    res.render('pages/homepageassistant', data);
+
                    }
     
                 }else{

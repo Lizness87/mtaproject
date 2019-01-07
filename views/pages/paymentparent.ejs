@@ -1,5 +1,4 @@
 <html>
-<base href="/assets">
 <head>
 <style>
 body  {
@@ -15,7 +14,11 @@ body  {
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
+
+
+</head>
+
+
 <body>
 <nav class="navbar navbar-inverse" style="background-color:#696969">
   <div class="container-fluid">
@@ -23,12 +26,11 @@ body  {
       
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="homepageparent?uid=<%=uid%>">דף הבית</a></li>
-      <li><a href="child-account?uid=<%=uid%>"> תיק הילד</a></li>
+      <li><a href="homepageparent1">דף הבית</a></li>
+      <li><a href="child-account"> תיק הילד</a></li>
 		<li><a href="payments-parent">תשלומים</a></li>
-    <li><a href="registration1?uid=<%=uid%>">רישום</a></li>
+    <li><a href="registration1">רישום</a></li>
 		<li><a href="reports-parent">דיווח שבועי</a></li>
-    <input type="hidden" value="<%=uid%>" name="uid">
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -36,12 +38,33 @@ body  {
     </ul>
   </div>
 </nav>
-
-<h2 style="color: white;font-size:300%;">ברוכים הבאים למשפחתון של רינת</h2>
-<center><iframe src="https://calendar.google.com/calendar/embed?src=rinatkidsevents%40gmail.com&ctz=Asia%2FJerusalem" style= "border:5px solid blue;
-width:60%; height:600; align:right; "></iframe></center>
+  <center><h2 style="color: white;font-size:300%;width:40%;">תשלומים</h2></center>
 
 
+<table border="1" cellpadding="7" cellspacing="7" id="childfile">
+  <tr>
+    <th>שם תשלום</th>
+    <th>סכום תשלום</th>
+    <th>הערות</th>
+  </tr>
+
+<% for(var i = 0;i < data.length;i++) { %>
+  <tr>
+    <td><%=data[i].payment_name%></td>
+	<td><%=data[i].amount%></td>  
+    <td><%=data[i].payment_notes%></td>
+
+  </tr>
+  <% } %>
+</table>
+<br>
+<center><form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" >
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="YFC7X26XPTPFA">
+<input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form></center>
+<br>
 <div class="footer" style="text-align: center; background-color: #696969;color:white;">
   <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>
 </div>

@@ -1,0 +1,36 @@
+<html>
+<head>
+
+<style>
+body  {
+  background-image: url("back.gif");
+
+}
+</style>
+<base href="/assets">
+
+<link rel="stylesheet" type="text/css" href="process1.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+
+<body>
+ <form action="/homepageparent1" method="POST">
+ <input type="hidden" value="<%=uid%>" name="uid">
+
+<h2 style="color: white;font-size:300%;width:40%;">רישום בוצע בהצלחה</h2>
+<center><img src="back.jpg" alt="home" class="home" style="height:40%;width :60%"></center>
+<br>
+
+
+<center><button type="submit" style="width:20%;font-size:200%;color:white;">חזור לדף הבית</button></center>
+</form>
+<div class="footer" style="text-align: center; background-color: #696969;color:white;">
+  <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+
+<html>
+<head>
+<style>
+body  {
+  background-image: url("back.gif");
+
+}
+</style>
+<base href="/assets">
+
+	<link rel="stylesheet" type="text/css" href="process1.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse" style="background-color:#696969">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+    </div>
+    <ul class="nav navbar-nav">
+       <li><a href="homepageassistant">דף הבית</a></li>
+      <li><a href="child-account-assistant">תיקי ילדים</a></li>
+      <li><a href="reports">דיווח שבועי</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> התנתק</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<table border="1" cellpadding="7" cellspacing="7" id="childfile">
+  <tr>
+    <th>הערות חשובות</th>
+    <th>הרגלי שינה</th>
+	<th>דברים חשובים בקשר לאוכל</th>
+	<th>אוכל</th>
+    <th>בחירת יום</th>
+    <th>כתובת</th>
+    <th>מין</th>
+	<th>תאריך לידה</th>
+    <th>תעודת זהות</th>
+	<th>שם משפחה</th>
+	<th>שם</th>
+
+
+  </tr>
+
+  <h2 style="color: white;font-size:300%;width:40%;">פרטי ילד</h2>
+<% for(var i = 0;i < data1.length;i++) { %>
+  <tr>
+    <td><%=data1[i].important_notes%></td>	
+    <td><%=data1[i].sleep_notes%></td>
+	<td><%=data1[i].nutrition_notes%></td>  
+	<td><%=data1[i].food%></td>
+	<td><%=data1[i].days_choice%></td>
+    <td><%=data1[i].child_address%></td> 
+    <td><%=data1[i].sex%></td>
+    <td><%=data1[i].birth%></td>
+    <td><%=data1[i].child_id%></td>
+	<td><%=data1[i].child_lastname%></td>  
+    <td><%=data1[i].child_name%></td>
+  </tr>
+  <% } %>
+</table>
+
+<h2 style="color: white;font-size:300%;width:40%;">פרטי איש קשר ראשי</h2>
+<table border="1" cellpadding="7" cellspacing="7" id="childfile">
+    <tr>
+	    <th>כתובת דוא״ל</th>
+		<th>כתובת</th>
+		<th>טלפון</th>
+		<th>תעודת זהות</th>
+		<th>שם משפחה</th>
+		<th>שם פרטי</th>
+  </tr>
+<% for(var i = 0;i < data2.length;i++) { %>
+  <tr>
+    <td><%=data2[i].parent1_email%></td> 
+    <td><%=data2[i].parent1_address%></td>
+    <td><%=data2[i].parent1_phone%></td>
+    <td><%=data2[i].parent1_id%></td>
+    <td><%=data2[i].parent1_lastname%></td>  
+    <td><%=data2[i].parent1_name%></td>
+  </tr>
+  <% } %>
+</table>
+
+<h2 style="color: white;font-size:300%;width:40%;">פרטי איש קשר משני</h2>
+<table border="1" cellpadding="7" cellspacing="7" id="childfile">
+    <tr>
+		<th>כתובת דוא״ל</th>
+		<th>כתובת</th>
+		<th>טלפון</th>
+		<th>תעודת זהות</th>
+		<th>שם משפחה</th>
+		<th>שם פרטי</th>
+  </tr>
+<% for(var i = 0;i < data3.length;i++) { %>
+  <tr>
+     <td><%=data3[i].parent2_email%></td> 
+    <td><%=data3[i].parent2_address%></td>
+    <td><%=data3[i].parent2_phone%></td>
+    <td><%=data3[i].parent2_id%></td>
+    <td><%=data3[i].parent2_lastname%></td>  
+    <td><%=data3[i].parent2_name%></td>
+  </tr>
+  <% } %>
+</table>
+
+
+
+<div class="footer" style="text-align: center; background-color: #696969;color:white;">
+  <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>
+</div>
+
+
+<!--  <a  href="homepageparent1" style="width:100%;">חזור לדף הבית</a> -->
+</body>
+</html>
+
+
+
+

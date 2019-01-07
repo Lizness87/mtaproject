@@ -9,6 +9,7 @@ connection.connect(function(err){
 if(!err) {
     console.log("Database is connected");
 } else {
+	console.log(err);
     console.log("Error while connecting with database");
 }
 });

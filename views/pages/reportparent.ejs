@@ -1,12 +1,12 @@
+
 <html>
-<base href="/assets">
 <head>
 <style>
-body  {
-  background-image: url("back.gif");
-
+body {
+  background-color: #ffffcc;
 }
 </style>
+
 <base href="/assets">
 
 <link rel="stylesheet" type="text/css" href="process1.css">
@@ -15,7 +15,11 @@ body  {
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
+
+</head>
+
+
+
 <body>
 <nav class="navbar navbar-inverse" style="background-color:#696969">
   <div class="container-fluid">
@@ -23,12 +27,11 @@ body  {
       
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="homepageparent?uid=<%=uid%>">דף הבית</a></li>
-      <li><a href="child-account?uid=<%=uid%>"> תיק הילד</a></li>
-		<li><a href="payments-parent">תשלומים</a></li>
-    <li><a href="registration1?uid=<%=uid%>">רישום</a></li>
+      <li><a href="homepageparent">דף הבית</a></li>
+      <li><a href="child-account"> תיק הילד</a></li>
+    <li><a href="payments-parent">תשלומים</a></li>
+    <li><a href="registration1">רישום</a></li>
 		<li><a href="reports-parent">דיווח שבועי</a></li>
-    <input type="hidden" value="<%=uid%>" name="uid">
 
     </ul>
     <ul class="nav navbar-nav navbar-right">
@@ -37,14 +40,37 @@ body  {
   </div>
 </nav>
 
-<h2 style="color: white;font-size:300%;">ברוכים הבאים למשפחתון של רינת</h2>
-<center><iframe src="https://calendar.google.com/calendar/embed?src=rinatkidsevents%40gmail.com&ctz=Asia%2FJerusalem" style= "border:5px solid blue;
-width:60%; height:600; align:right; "></iframe></center>
+<h2 style="color: white;font-size:300%;">דיווח שבועי</h2>
+
+<table border="1" cellpadding="7" cellspacing="7" id="childfile">
+  <tr>
+
+    <th>התקדמות שבועית</th>
+    <th>שם הילד</th>
+	<th>תאריך הדיווח</th>
+  
+  </tr>
+<% for(var i = 0;i < data.length;i++) { %>
+  <tr>
+     <td><%=data[i].status%></td>
+    <td><%=data[i].child_name%></td>	
+	<td><%=data[i].date%></td>  
+  <% } %>
+  <input id="child_name" type="text" name="child_name" value="" hidden="true">
+
+</table>
+
+
+<form action="/homepageparent1" method="POST">
+<center><button type="submit" id="backbutton">חזור לדף הבית</button></center>
+
+</form>
 
 
 <div class="footer" style="text-align: center; background-color: #696969;color:white;">
   <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>
 </div>
+
 
 </body>
 

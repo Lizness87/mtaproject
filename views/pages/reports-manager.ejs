@@ -18,6 +18,12 @@ body  {
 
 </head>
 
+<script type="text/javascript">
+  function UpdateChildName() {
+    document.getElementById("child_name").value = document.getElementById("child_select").value;
+    console.log(child_name);
+  }
+</script>
 
 <body>
 
@@ -43,12 +49,41 @@ body  {
 <br>
 <br>
 
-<center><iframe src="https://calendar.google.com/calendar/embed?src=rinatkidsevents%40gmail.com&ctz=Asia%2FJerusalem" style= "border:5px solid blue;
-width:60%; height:600; align:right; "></iframe></center>
 
+<body>
+
+
+
+<form action="/controllers/reports-controller" method="POST">
+
+<p><center><fieldset ><legend style="font-weight: bold;font-size:25px;"> דיווח שבועי על ילד במשפחתון</legend></p>
+
+  <select id="child_select" onchange="UpdateChildName(child_name)">
+    <% for(var i = 0;i < children.length;i++) { %>
+
+  <option value="<%=children[i].child_name%>"><%=children[i].child_name%></option>
+    <% } %>
+</select>
+<p>סטטוס התקדמות שבועי</p><input style="height:100px; width:700px; font-size:14pt; word-wrap: break-word;" type="text" name="status_report"></fieldset>
+<p>תאריך הדיווח</p> <input type="date" name="date">
+<input id="child_name" type="text" name="child_name" value="" hidden="true">
+
+
+<br>
+<br>
+
+</form>
+
+<center><button type="submit" style="width:20%;font-size:200%;color:white;">הכנס דיווח</button></center>
+
+
+</fieldset>
+<br>
+</form>
 <div class="footer" style="text-align: center; background-color: #696969;color:white;">
   <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>
 </div>
+
 </body>
 
 </html>

@@ -11,49 +11,22 @@ img.calendar{
 	text-align: center;
 
 }
-img.rinat{
-	width: 15%;
-	height:15%;
-	display: block;
-	float:left;
-	position: relative;
-	text-align: center;
-
-}
 
 h2{
 	 text-align: center;
 	 color: white;
-	 font-size: 200%;
+	 font-size: 300%;
 	 font-weight: bold;
 	 background-color:pink;
 	 font-family: Arial;
-	 	border-radius:20%;
 
 
 }
-h4{
-	 text-align: center;
-	 color: white;
-	 font-size: 300%;
-	 font-weight: bold;
-	 background-color:#f2ccff;
-	 font-family: Arial;
-	 width:40%;
-	border-radius:20%;
-	    margin-left: auto;
-    margin-right: auto;
-	 
-
-
-}
-
 ul{list-style-type:none;}
 
 li{
 	float:left;
-	font-size: 50%;
-
+	width:200px;
 }
  select {
   width: 30%;
@@ -77,20 +50,6 @@ a,button{
 	text-align:center;
 	background:pink;
 	border-radius:10px;
-	
-}
-
-#backbutton{
-	width:10%;
-	font-size:20px;
-	font-family: Arial;
-	text-align:center;
-	color:white;
-	background:pink;
-	float:right;
-	
-
-
 	
 }
 #childfile {

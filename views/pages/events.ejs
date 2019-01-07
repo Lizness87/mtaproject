@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Events</title>
+   <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="events.css">
+
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+</head>
+<body>
+<nav class="navbar navbar-inverse" style="background-color:#696969">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="homepagemanager">דף הבית</a></li>
+      <li><a href="child-account-manager">תיקי ילדים</a></li>
+      <li><a href="payments-manager"">תשלומים</a></li>
+		<li><a href="events">אירועים</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> התנתק</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<center><img src="rinat.png" alt="home" class="home"></center>
+<h2>המשפחתון של רינת - אירועים</h2>
+<form class="container" action="/events" method="post">
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" name="event_date" id="event_date" class="datepicker" placeholder="בחר תאריך">
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <input type="text" name="event_description" id="event_description" placeholder="מה שם האירוע?">
+        </div>
+    </div>
+    <div class="row center">
+        <button class="btn waves-effect waves-light blue" onclick="addEvent()" type="submit">הוסף אירוע</button>
+        <button type="button" dir="rtl" class="btn waves-effect waves-light red" name="google_sign" id="google_sign" onclick="signInToGoogle()">התחבר לגוגל</button>
+    </div>
+</form>
+</body>
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker();
+    });
+</script>
+<script type="text/javascript">
+    // Client ID and API key from the Developer Console
+    var CLIENT_ID = '453824369189-e4pp021t3tn4jl2liqggkb2fbnatf9il.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyApwo5sV09fal530J4oRCBaAZ1O36mI1iE';
+
+    // Array of API discovery doc URLs for APIs used by the quickstart
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+
+    // Authorization scopes required by the API; multiple scopes can be
+    // included, separated by spaces.
+    var SCOPES = "https://www.googleapis.com/auth/calendar";
+
+    var authorizeButton = document.getElementById('authorize_button');
+    var signoutButton = document.getElementById('signout_button');
+
+    /**
+     *  On load, called to load the auth2 library and API client library.
+     */
+    function handleClientLoad() {
+        gapi.load('client:auth2', initClient);
+    }
+
+    function initClient() {
+        gapi.client.init({
+            apiKey: API_KEY,
+            clientId: CLIENT_ID,
+            discoveryDocs: DISCOVERY_DOCS,
+            scope: SCOPES
+        }).then(function () {
+            // Listen for sign-in state changes.
+            gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
+            // Handle the initial sign-in state.
+            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            // authorizeButton.onclick = handleAuthClick;
+            // signoutButton.onclick = handleSignoutClick;
+            console.log("gapi client initiated successfully");
+        }, function (error) {
+            console.log(JSON.stringify(error, null, 2));
+        });
+    }
+
+    function updateSigninStatus(isSigned){
+        let btn = document.getElementById('google_sign');
+        if (isSigned){
+            btn.innerText = 'מחובר!';
+        }
+        else{
+            btn.innerText = 'התחבר לגוגל';
+        }
+    }
+
+    function signInToGoogle(){
+        if (!gapi.auth2.getAuthInstance().isSignedIn.get()) {
+            gapi.auth2.getAuthInstance().signIn();
+        }
+    }
+
+    function addEvent() {
+        let eventDate = document.getElementById('event_date').value;
+        let formattedDate = new Date(eventDate).toISOString().substr(0, 19);
+        let eventDescription = document.getElementById('event_description').value;
+        const event = {
+            'summary': eventDescription,
+            // 'location': '800 Howard St., San Francisco, CA 94103',
+            'description': eventDescription,
+            'start': {
+                'dateTime': formattedDate,
+                'timeZone': 'Asia/Jerusalem'
+            },
+            'end': {
+                'dateTime': formattedDate,
+                'timeZone': 'Asia/Jerusalem'
+            }
+        };
+        gapi.client.calendar.events.insert({
+            'calendarId': 'primary',
+            'resource': event
+        }).then(function (response) {
+            console.log(response);
+        })
+    }
+
+</script>
+
+
+<script async defer src="https://apis.google.com/js/api.js"
+        onload="this.onload=function(){};handleClientLoad()"
+        onreadystatechange="if (this.readyState === 'complete') this.onload()">
+</script>
+</html>

@@ -45,8 +45,7 @@ body  {
 <form action="/controllers/payments-controller" method="POST">
 
 <h2>הכנס פרטי התשלום</h2>
-<p><center><fieldset><legend style="font-weight: bold;font-size:25px;"> פרטי תשלום</legend></p>
-<p> שם הילד</p>
+<p><fieldset><legend style="font-weight: bold;font-size:25px;"> פרטי תשלום</legend></p>
   <select id="child_select" onchange="UpdateChildName(child_name)">
     <% for(var i = 0;i < children.length;i++) { %>
 
@@ -58,14 +57,11 @@ body  {
 <p> הערות</p><input type="text" name="aapayment">
 <input id="child_name" type="text" name="child_name" value="" hidden="true">
 
-</fieldset></center>
+</fieldset>
 <br>
 
-<center><button type="submit"  style="width:15%;color:white;font-size:150%;">אישור</button></center>
+<button type="submit">אישור</button>
 </form>
-<div class="footer" style="text-align: center; background-color: #696969;color:white;">
-  <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>
-</div>
 
 </body>
 

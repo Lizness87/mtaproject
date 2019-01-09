@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<base href="/assets">
 <head>
-<style>
-body  {
-  background-image: url("back.gif");
-
-}
-</style>
-	<link rel="stylesheet" type="text/css" href="process1.css">
-
     <meta charset="UTF-8">
     <title>Events</title>
    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -18,7 +9,6 @@ body  {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link rel="stylesheet" type="text/css" href="events.css">
-	
 
     <script>
         $(function () {
@@ -36,8 +26,7 @@ body  {
       <li><a href="homepagemanager">דף הבית</a></li>
       <li><a href="child-account-manager">תיקי ילדים</a></li>
       <li><a href="payments-manager"">תשלומים</a></li>
-        <li><a href="events">אירועים</a></li>
-
+		<li><a href="events">אירועים</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="login"><span class="glyphicon glyphicon-log-in"></span> התנתק</a></li>
@@ -46,11 +35,12 @@ body  {
 </nav>
 
 
+<center><img src="rinat.png" alt="home" class="home"></center>
 <h2>המשפחתון של רינת - אירועים</h2>
 <form class="container" action="/events" method="post">
     <div class="row">
         <div class="input-field col s12">
-            <input type="text" name="event_date" id="event_date" class="datepicker" style="colore:black;" placeholder="בחר תאריך">
+            <input type="text" name="event_date" id="event_date" class="datepicker" placeholder="בחר תאריך">
         </div>
     </div>
     <div class="row">
@@ -59,15 +49,10 @@ body  {
         </div>
     </div>
     <div class="row center">
-        <center><button class="btn waves-effect waves-light blue" onclick="addEvent()" type="submit"style="width:15%;">הוסף אירוע</button></center>
-		<br>
-        <center><button type="button" dir="rtl" class="btn waves-effect waves-light red" name="google_sign" id="google_sign" onclick="signInToGoogle()"style="width:15%;">התחבר לגוגל</button></center>
+        <button class="btn waves-effect waves-light blue" onclick="addEvent()" type="submit">הוסף אירוע</button>
+        <button type="button" dir="rtl" class="btn waves-effect waves-light red" name="google_sign" id="google_sign" onclick="signInToGoogle()">התחבר לגוגל</button>
     </div>
 </form>
-
-<div class="footer" style="text-align: center; background-color: #696969;color:white;">
-  <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>
-</div>
 </body>
 <script>
     $(document).ready(function () {

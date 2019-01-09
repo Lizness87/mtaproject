@@ -62,12 +62,6 @@ body {
 </table>
 
 
-<form action="/homepageparent?uid=<%=uid%>" method="GET">
-<center><button type="submit" id="backbutton">חזור לדף הבית</button></center>
-
-</form>
-
-
 <div class="footer" style="text-align: center; background-color: #696969;color:white;">
   <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>
 </div>

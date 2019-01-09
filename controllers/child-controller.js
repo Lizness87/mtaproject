@@ -9,26 +9,27 @@ module.exports.childaccount=function(req,res){
 	app.use(express.static('assets'));
     var data1={}, data2={}, data3={}; //initialize data arrays
 
-    connection.query('SELECT * FROM child WHERE uid=?',[req.query.uid], function (err, child_result)
+    //connection.query('SELECT * FROM child WHERE uid=?',[req.query.uid], function (err, child_result)
+    connection.query('SELECT *, DATE_FORMAT(birth, "%m-%d-%y") AS birth FROM child WHERE uid=?',[req.query.uid], function (err, child_result)  
     {	
         if (err){
             console.log(err);
-            res.render('pages/child', {data1:data1, data2:data2, data3: data3}); 
+            res.render('pages/child', {data1:data1, data2:data2, data3: data3, uid:req.query.uid}); 
         }else{
              data1 = child_result;
             connection.query('SELECT * FROM main_parent WHERE uid=?',[req.query.uid], function (err, main_parent_result) {  
                 if (err){
                     console.log(err);
-                    res.render('pages/child', {data1:data1, data2:data2, data3: data3}); 
+                    res.render('pages/child', {data1:data1, data2:data2, data3: data3, uid:req.query.uid}); 
                 }else{
                     data2 = main_parent_result;    
                     connection.query('SELECT * FROM sub_parent WHERE uid=?',[req.query.uid], function (err, sub_parent_result) {  
                     if (err){
                         console.log(err);
-                        res.render('pages/child', {data1:data1, data2:data2, data3: data3}); 
+                        res.render('pages/child', {data1:data1, data2:data2, data3: data3, uid:req.query.uid}); 
                     }else{
                        data3 = sub_parent_result; 
-                       res.render('pages/child', {data1:data1, data2:data2, data3: data3}); 
+                       res.render('pages/child', {data1:data1, data2:data2, data3: data3, uid:req.query.uid}); 
                     }
                        
                   });
@@ -45,7 +46,7 @@ module.exports.childaccount=function(req,res){
 module.exports.childaccountManager=function(req,res){
     app.use(express.static('assets'));
     var data1={}, data2={}, data3={};
-    connection.query('SELECT * FROM child', function (err, child_result) 
+    connection.query('SELECT *, DATE_FORMAT(birth, "%m-%d-%y") AS birth FROM child', function (err, child_result) 
     {   
         if (err){
             console.log(err);

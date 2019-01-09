@@ -31,19 +31,43 @@ connection.query(sql, function (err, result) {
   });
 }
 
+// module.exports.DisplayPayments=function(req,res){
+// 	app.use(express.static('assets'));
+// connection.query('SELECT * FROM payments', function (err, payments_result) 
+//     {   
+//         if (err){
+//             console.log(err);
+//             res.render('pages/homepageparent', {uid:req.query.uid});        }
+//         else {
+//         	 res.render('pages/paymentparent', {data:payments_result, uid:req.query.uid});
+        	
+//     	}
+//   	});
+// }
+
 module.exports.DisplayPayments=function(req,res){
-	app.use(express.static('assets'));
-connection.query('SELECT * FROM payments', function (err, payments_result) 
-    {   
+app.use(express.static('assets'));
+connection.query('SELECT child_name FROM child WHERE uid=?',[req.query.uid], function (err, child_result)
+    { 
         if (err){
             console.log(err);
-            //TODO: Error handling to browser
-            res.redirect('/homepageparent1');
-        }
-        else {
-        	 res.render('pages/paymentparent', {data:payments_result, uid:req.query.uid});
-        	
-    	}
-  	});
+            res.render('pages/homepageparent', {uid:req.query.uid});
+            }else{
+            child = child_result;
+            connection.query('SELECT * FROM payments WHERE child_name=?', [child], function (err, payments_result) 
+                    {   
+                    if (err)
+                        {
+                        console.log(err);
+                        res.render('pages/homepageparent', {uid:req.query.uid});    
+                        }                 
+                    else {
+                     res.render('pages/paymentparent', {data:payments_result, uid:req.query.uid});
+                    }
+            });
+    }
+  });
 }
+
+
 

@@ -59,6 +59,8 @@ body  {
 		<th>שם משפחה</th>
 		<th>שם</th>
   </tr>
+
+<!-- Display Child Details -->
 <% for(var i = 0;i < data1.length;i++) { %>
   <tr>
 		<td><%=data1[i].important_notes%></td>	
@@ -88,6 +90,9 @@ body  {
 		<th>שם משפחה</th>
 		<th>שם פרטי</th>
   </tr>
+
+  <!-- Display Main Parent Details -->
+
 <% for(var i = 0;i < data2.length;i++) { %>
   <tr>
 		<td><%=data2[i].parent1_email%></td> 
@@ -112,6 +117,10 @@ body  {
 		<th>שם משפחה</th>
 		<th>שם פרטי</th>
   </tr>
+
+  <!-- Display Sub Parent Details -->
+
+
 <% for(var i = 0;i < data3.length;i++) { %>
   <tr>
       <td><%=data3[i].parent2_email%></td> 

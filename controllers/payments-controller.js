@@ -41,7 +41,7 @@ connection.query('SELECT * FROM payments', function (err, payments_result)
             res.redirect('/homepageparent1');
         }
         else {
-        	 res.render('pages/paymentparent', {data:payments_result});
+        	 res.render('pages/paymentparent', {data:payments_result, uid:req.query.uid});
         	
     	}
   	});

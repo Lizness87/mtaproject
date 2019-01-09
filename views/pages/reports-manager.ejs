@@ -1,5 +1,5 @@
 <html>
-<base href="/assets">
+
 <head>
 <style>
 body  {
@@ -57,16 +57,17 @@ body  {
 <form action="/controllers/reports-controller" method="POST">
 
 <p><center><fieldset ><legend style="font-weight: bold;font-size:25px;"> דיווח שבועי על ילד במשפחתון</legend></p>
-
+<p>שם הילד</p>
   <select id="child_select" onchange="UpdateChildName(child_name)">
     <% for(var i = 0;i < children.length;i++) { %>
 
   <option value="<%=children[i].child_name%>"><%=children[i].child_name%></option>
     <% } %>
 </select>
-<p>סטטוס התקדמות שבועי</p><input style="height:100px; width:700px; font-size:14pt; word-wrap: break-word;" type="text" name="status_report"></fieldset>
+<p>סטטוס התקדמות שבועי</p><input style="height:100px; font-size:14pt; word-wrap: break-word;" type="text" name="status_report">
 <p>תאריך הדיווח</p> <input type="date" name="date">
 <input id="child_name" type="text" name="child_name" value="" hidden="true">
+</fieldset>
 
 
 <br>

@@ -5,12 +5,12 @@ app.use(express.static('assets'));
 
 module.exports.DBupdate1=function(req,res){
 app.use(express.static('assets'));
-var sql = `INSERT INTO reports (date, status, child_name) VALUES (STR_TO_DATE(${req.body.date}, '%b %d, %Y'), '${req.body.status_report}','${req.body.child_name}')`;
-connection.query(sql, function (err, result) {
+var sql = `INSERT INTO reports (date, status, child_name) VALUES ('${req.body.date}', '${req.body.status_report}','${req.body.child_name}')`;
+connection.query(sql, function (err, result) {                
     if (err)
     	{
     		console.log(err);
-    		res.redirect('/homepageassistant1');
+    		res.redirect('/homepageassistant');
     	}
     else {
     	res.redirect('/reports-manager-auth');
@@ -20,15 +20,15 @@ connection.query(sql, function (err, result) {
 
 module.exports.DisplayReports=function(req,res){
 app.use(express.static('assets'));
-connection.query('SELECT * FROM reports', function (err, reports_result) 
+connection.query('SELECT *, DATE_FORMAT(date, "%m-%d-%y") AS date FROM reports', function (err, reports_result) 
     {   
         if (err){
             console.log(err);
             //TODO: Error handling to browser
-            res.redirect('/homepageparent1');
+            res.redirect('/homepageparent');
         }
         else {
-            res.render('pages/reportparent', {data:reports_result});
+            res.render('pages/reportparent', {data:reports_result, uid:req.query.uid});
     }
   });
 }

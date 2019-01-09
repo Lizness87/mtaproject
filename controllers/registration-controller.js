@@ -32,7 +32,7 @@ module.exports.registration5=function(req,res){
 
 module.exports.RedirectHomepageParent=function(req,res){
     app.use(express.static('assets'));
-    res.render('pages/homepageparent', {uid: req.body.uid});
+    res.render('pages/homepageparent', {uid: req.query.uid});
 };
 
 module.exports.RedirectHomepageManager=function(req,res){

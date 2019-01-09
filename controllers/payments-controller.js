@@ -52,20 +52,24 @@ connection.query('SELECT child_name FROM child WHERE uid=?',[req.query.uid], fun
         if (err){
             console.log(err);
             res.render('pages/homepageparent', {uid:req.query.uid});
-            }else{
-            child = child_result;
-            connection.query('SELECT * FROM payments WHERE child_name=?', [child], function (err, payments_result) 
+        } else 
+        {
+            console.log(child_result);
+            connection.query('SELECT * FROM payments WHERE child_name=?', [child_result[0].child_name], function (err, payments_result) 
                     {   
                     if (err)
                         {
+                            console.log('bisly');
                         console.log(err);
                         res.render('pages/homepageparent', {uid:req.query.uid});    
                         }                 
                     else {
+                        console.log('bamba');
+                     console.log(payments_result);
                      res.render('pages/paymentparent', {data:payments_result, uid:req.query.uid});
                     }
             });
-    }
+        }
   });
 }
 

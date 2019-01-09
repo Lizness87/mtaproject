@@ -84,17 +84,3 @@ app.use(express.static('assets'));
 var child = `UPDATE child SET days_choice=${req.body.days} WHERE uid=${req.body.uid}`;
 res.redirect('/registration5' + '?uid=' + req.body.uid);
 }
-
-
-
-// module.exports.add_event=function(req,res){
-//     // connection.query('SELECT * FROM child WHERE uid=?',[req.body.uid], function (error, result) {
-//     // 	var data = {'id': 1, 'name':'yosi'}
-//     // 	for (var i = result.length - 1; i >= 0; i--) {
-//     // 		data[]=result[i]
-//     // 	}
-//     // }
-//     var data = req.body
-//     app.use(express.static('assets'));
-//     res.render('pages/yeled', data);
-// };

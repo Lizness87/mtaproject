@@ -44,27 +44,80 @@ body  {
 
 <table border="1" cellpadding="7" cellspacing="7" id="childfile">
   <tr>
-    <th>שם תשלום</th>
-    <th>סכום תשלום</th>
     <th>הערות</th>
+    <th>סכום תשלום</th>
+    <th>שם תשלום</th>
+    <th>שם הילד</th>
+
   </tr>
 
 <% for(var i = 0;i < data.length;i++) { %>
   <tr>
-    <td><%=data[i].payment_name%></td>
-	<td><%=data[i].amount%></td>  
     <td><%=data[i].payment_notes%></td>
-
+    <td><%=data[i].amount%></td> 
+    <td><%=data[i].payment_name%></td>
+    <td><%=data[i].child_name%></td>
   </tr>
   <% } %>
 </table>
 <br>
-<center><form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" >
+
+
+
+<div id="paypal-button"></div>
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script> 
+  paypal.Button.render({
+    // Configure environment
+    env: 'sandbox',
+    client: {
+      sandbox: 'ARJuI2Jpbr2_OugkC_2XIkISLnR0Qpi_s4PYxNLPU8TEmjThL8Vfzpor0U1Acx6zeDYskZsfL8S-4OcL'
+    },
+    // Customize button (optional)
+    locale: 'en_US',
+    style: {
+      size: 'responsive',
+      color: 'gold',
+      shape: 'pill',
+    },
+
+    // Enable Pay Now checkout flow (optional)
+    commit: true,
+
+    // Set up a payment
+    payment: function(data, actions) {
+      return actions.payment.create({
+        transactions: [{
+          amount: {
+            total: '<%=data[0].amount%>',
+            currency: 'ILS'
+          }
+        }]
+      });
+    },
+    // Execute the payment
+    onAuthorize: function(data, actions) {
+      return actions.payment.execute().then(function() {
+        // Show a confirmation message to the buyer
+        window.alert('תודה על ביצוע התשלום!');
+      });
+    }
+  }, '#paypal-button');
+
+</script> 
+
+
+<!-- <center><form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" >
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="YFC7X26XPTPFA">
 <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynow_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form></center>
+</form></center> -->
+
+
+
+
+
 <br>
 <div class="footer" style="text-align: center; background-color: #696969;color:white;">
   <p>כתובת: אברהם יפה 3, חולון. טלפון: 050-6791354</p>

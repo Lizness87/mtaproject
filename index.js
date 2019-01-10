@@ -32,25 +32,6 @@ app.get('/login', function (req, res) {
 
 });
 
-
-// app.get('/homepageparent', function (req, res) {
-//     res.render('pages/homepageparent');
-
-// });
-
-// app.get('/homepagemanager', function (req, res) {
-//     res.render('pages/homepagemanager');
-
-// });
-
-// app.get('/homepageassistant', function (req, res) {
-//     res.render('pages/homepageassistant');
-
-// });
-
-
-
-
 //Routes to handle Payments
 
 app.get('/payments-manager', function (req, res) {
@@ -58,7 +39,7 @@ app.get('/payments-manager', function (req, res) {
     {
         console.log(child_result);
         if (err){
-            res.redirect('/homepagemanager1');
+            res.redirect('/homepagemanager');
         } else {
             res.render('pages/paymentmanager1', {children:child_result});
         }
@@ -77,7 +58,7 @@ app.get('/reports-manager', function (req, res) {
     {
         console.log(child_result);
         if (err){
-            res.redirect('/homepageassistant1');
+            res.redirect('/homepageassistant');
         } else {
             res.render('pages/reports-manager', {children:child_result});
         }
@@ -107,7 +88,7 @@ app.get('/homepageparent',registrationController.RedirectHomepageParent);
 app.get('/homepagemanager',registrationController.RedirectHomepageManager);
 app.get('/homepageassistant',registrationController.RedirectHomepageAssistant);
 
-/* route to handle display child account */ 
+/* route to display child account */ 
 app.get('/child-account',childController.childaccount);
 app.get('/child-account-manager',childController.childaccountManager)
 app.get('/child-account-assistant',childController.childaccountAssistant)

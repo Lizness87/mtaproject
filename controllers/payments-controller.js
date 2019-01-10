@@ -31,19 +31,6 @@ connection.query(sql, function (err, result) {
   });
 }
 
-// module.exports.DisplayPayments=function(req,res){
-// 	app.use(express.static('assets'));
-// connection.query('SELECT * FROM payments', function (err, payments_result) 
-//     {   
-//         if (err){
-//             console.log(err);
-//             res.render('pages/homepageparent', {uid:req.query.uid});        }
-//         else {
-//         	 res.render('pages/paymentparent', {data:payments_result, uid:req.query.uid});
-        	
-//     	}
-//   	});
-// }
 
 module.exports.DisplayPayments=function(req,res){
 app.use(express.static('assets'));

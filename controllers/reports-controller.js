@@ -26,8 +26,7 @@ connection.query('SELECT child_name FROM child WHERE uid=?',[req.query.uid], fun
             console.log(err);
             res.render('pages/homepageparent', {uid:req.query.uid});
             }else{
-            child = child_result;
-            connection.query('SELECT *, DATE_FORMAT(date, "%m-%d-%y") FROM reports WHERE child_name=?', [child], function (err, reports_result) 
+            connection.query('SELECT *, DATE_FORMAT(date, "%m-%d-%y") AS date FROM reports WHERE child_name=?', [child_result[0].child_name], function (err, reports_result) 
                     {   
                     if (err)
                         {

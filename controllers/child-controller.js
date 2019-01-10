@@ -9,7 +9,6 @@ module.exports.childaccount=function(req,res){
 	app.use(express.static('assets'));
     var data1={}, data2={}, data3={}; //initialize data arrays
 
-    //connection.query('SELECT * FROM child WHERE uid=?',[req.query.uid], function (err, child_result)
     connection.query('SELECT *, DATE_FORMAT(birth, "%m-%d-%y") AS birth FROM child WHERE uid=?',[req.query.uid], function (err, child_result)  
     {	
         if (err){
@@ -86,7 +85,6 @@ module.exports.childaccountManager=function(req,res){
     {   
         if (err){
             console.log(err);
-            //TODO: Error handling to browser
             res.render('pages/child-assistant', {data1:data1, data2:data2, data3: data3}); 
         }else{
             data1 = child_result;

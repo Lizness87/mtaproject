@@ -20,16 +20,16 @@ module.exports.authenticate=function(req,res){
                 if(user_result[0].password == password){
                     console.log(JSON.stringify(user_result[0]));
                     if (user_result[0].privilege=='parent') {
-                       var data={uid:user_result[0].uid};
-                        res.render('pages/homepageparent', data);
-                    }
+                        // var data={uid:user_result[0].uid};
+                        // res.render('pages/homepageparent', data);
+                        res.render('pages/homepageparent', {uid:user_result[0].uid, username:user_result[0].username});                    }
                     else if (user_result[0].privilege=='manager') {
-                         var data={uid:user_result[0].uid};
-                        res.render('pages/homepagemanager', data);
+                         // var data={uid:user_result[0].uid};
+                        res.render('pages/homepagemanager',{uid:user_result[0].uid, username:user_result[0].username});
                    }
                     else if (user_result[0].privilege='assistant') {
-                         var data={uid:user_result[0].uid};
-                    res.render('pages/homepageassistant', data);
+                         // var data={uid:user_result[0].uid};
+                    res.render('pages/homepageassistant', {uid:user_result[0].uid, username:user_result[0].username});
 
                    }
     

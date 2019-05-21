@@ -1,2 +1,2 @@
-# mtaproject
-Web and mobile application (responsive website) for managing and registering a kindergarten 
+# Final Project for the Academic College of Tel Aviv-Jaffo
+NodeJS application for managing a kindergarden
